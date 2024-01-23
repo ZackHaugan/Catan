@@ -1,0 +1,281 @@
+/* COLOR PALLETE  */
+#allColors{
+  color:#2d2d2d;
+  color:#233059;
+  color:#0C9AF2;
+  /* */
+  color:#A0EAF2;
+  color:#76acb3;
+  /* */
+  color:#e6537d;
+}
+/* COLOR PALLETE  */
+
+html {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+ }
+
+body{
+  margin: 0px;
+  height: 100%;
+  background-color: #2d2d2d;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* CONTROL BOX */
+#controlBox{
+  overflow-y: auto;
+  max-height: calc(100vh - 20px);
+  margin: 10px;
+  padding: 0px;  
+  background-color: #0C9AF2;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  width: calc(30vw - 20px);
+  box-shadow: 0px 5px 10px -5px #000000;
+}
+
+/* CONTROL BOX HEADER */
+
+#controlBoxHeader{
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  background-color:#233059;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #A0EAF2;
+  user-select: none;
+  border-bottom: 2px solid #A0EAF2;
+}
+
+
+#controlBoxHeader svg{
+  border: 1px solid #233059;
+  display: block;
+  border-radius: 3px;
+  transition: border-color 0.2s;
+}
+
+#controlBoxHeader svg:hover{
+  cursor: pointer;
+  display: block;
+  border: 1px solid #A0EAF2;
+  border-radius: 3px;
+}
+#controlBoxHeader h2{
+  margin: 10px 0px 10px 0px;
+}
+/* END CONTROL BOX HEADER */
+
+.controlBoxOption{
+  margin: 5px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.controlBoxOptionText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  color: #233059;
+}
+
+.controlBoxOptionText h3{
+  margin: 3px 0px 1px 5px;
+} 
+
+.controlBoxOptionText h6{
+  margin: 1px 0px 3px 5px;
+}
+
+.hidden{
+  display:none;
+}
+
+/* CONTROL BOX OPTION HEADER */
+.controlBoxOptionHeader{
+  background-color: #233059;
+  /* border-bottom: 1px solid #A0EAF2; */
+  color: #A0EAF2;
+  height:42px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.controlBoxOptionHeader img{
+  margin: 0px 8px;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #233059;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.controlBoxOptionHeader img:hover{
+  border: 1px solid #A0EAF2;
+  border-radius: 3px;
+}
+
+.controlBoxOptionHeader h2{
+  margin: 0px;
+}
+
+.controlBoxOptionHeader .button{
+  display: inline-block;
+  margin: 0px 10px 0px auto;
+  padding: 0px 5px;
+  height: 20px;
+  background-color: #e6537d;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.controlBoxOptionHeader .button:hover{
+    display: inline-block;
+    margin: 0px 10px 0px auto;
+    padding: 0px 5px;
+    height: 20px;
+    background-color: #993753;
+    border: 1px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, border 0.2s;
+}
+
+.controlBoxOptionHeader .button p{
+  margin: 0px;
+  line-height: 20px;
+  color: white;
+}
+/* END CONTROL BOX OPTION HEADER */
+
+
+/* CHECKBOXES */
+.checkbox{
+  display: inline-block;
+  margin: 5px 5px 5px 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #A0EAF2;
+  border: 2px solid #233059;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+
+}
+
+.checkbox:hover{
+  background-color: #76acb3;
+}
+
+.checkbox p{
+  margin: 0px;
+  text-align: center;
+  line-height: 20px;
+  color: #e6537d;
+  font-weight: bold;
+}
+/* END CHECKBOXES */
+/* INPUT NUMBERS */
+.inputNumber{
+  margin: 5px 5px 5px 10px;
+  width: 30px;
+  height: 20px;
+  color: #e6537d;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #A0EAF2;
+  border: 2px solid #233059;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.inputNumber:hover{
+  background-color: #76acb3;
+}
+
+.inputNumber::-webkit-outer-spin-button,
+.inputNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* END INPUT NUMBERS */
+
+/* MISC */
+#rolledNumberChartContainer{
+  display: flex;
+  justify-content: center;
+  padding: 5px 10%;
+}
+
+#rolledNumberChart{
+  background-color: #A0EAF2;
+  width: 100%;
+}
+
+/* END MISC */
+/* END CONTROL BOX */
+
+
+#catanBoard {
+    margin: 10px;
+    align-self: center;
+    width: calc(70vw - 20px);
+    max-width: calc((100vh - 20px) * 13 / 12);
+    height: auto;
+    max-height: calc(100vh - 20px);
+    aspect-ratio : 13 / 12;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+#catanBoardContainer{
+    height: 100vh;
+    width:70vw;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Target all scrollbars */
+::-webkit-scrollbar {
+    width: 10px; /* Set a custom width */
+    height: 10px;
+}
+  
+  /* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #A0EAF2;
+    border: 2px solid #2d2d2d;
+    border-radius: 5px;
+}
+  /* Style the scrollbar track */
+::-webkit-scrollbar-track {
+    background-color: #2d2d2d;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png");
+}

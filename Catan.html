@@ -1,0 +1,115 @@
+<!doctype HTML>
+<html lang="en">
+<head>
+    <title>Catan Tool</title>
+    <link rel="icon" href="Images/Icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Catan.css"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <div id="controlBox">
+        <div id="controlBoxHeader">
+            <div style="padding: 0px;margin: 0px;" title="Collapse All Menus (c)">
+                <svg width="24" height="24" viewBox="0 0 24 24"    preserveAspectRatio="xMinYMin meet" title="Collapse All Menus (c)" onclick="collapseAll();">
+                    <path fill="#A0EAF2" d="M4,2A2,2 0 0,0 2,4V14H4V4H14V2H4M8,6A2,2 0 0,0 6,8V18H8V8H18V6H8M20,12V20H12V12H20M20,10H12A2,2 0 0,0 10,12V20A2,2 0 0,0 12,22H20A2,2 0 0,0 22,20V12A2,2 0 0,0 20,10M19,17H13V15H19V17Z"/>
+                </svg>
+            </div>
+            <h2 id="titleHeader">Catan Control Box</h2>
+            <div style="padding: 0px;margin: 0px;" title="Expand All Menus (e)">
+                <svg width="24" height="24" viewBox="0 0 24 24"    preserveAspectRatio="xMinYMin meet" title="Expand All Menus (e)" onclick="expandAll();">
+                    <path fill="#A0EAF2" d="M4,2A2,2 0 0,0 2,4V14H4V4H14V2H4M8,6A2,2 0 0,0 6,8V18H8V8H18V6H8M20,12V20H12V12H20M20,10H12A2,2 0 0,0 10,12V20A2,2 0 0,0 12,22H20A2,2 0 0,0 22,20V12A2,2 0 0,0 20,10M19,17H17V19H15V17H13V15H15V13H17V15H19V17Z"/>
+                </svg>
+            </div>
+            
+        </div>
+        <div id="controlBoxOptionHeaderGenerate" class="controlBoxOptionHeader">
+            <img src="Images/ExpandedArrow.png" title="Collapse Menu" onclick="toggleExpand(0);">
+            <h2>Generate Board</h2>
+            <div class="button" onclick="generateBoard();"><p>Generate <i>(g)</i></p></div>
+        </div>
+        <div id="controlBoxOptionsGenerate" class="">
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxMiddleDesert" class="checkbox checked" onclick="toggleCheckbox(0);"><p>✖</p></div>
+                <div class="controlBoxOptionText">
+                    <h3>Middle Desert</h3>
+                    <h6>Generates board with the desert tile in the center</h6>
+                </div>
+            </div>
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxAdjacentResources" class="checkbox unchecked" onclick="toggleCheckbox(1);"></div>
+                <div class="controlBoxOptionText">
+                    <h3>Adjacent Resources</h3>
+                    <h6>Allows tiles of the same resource to be next to each other</h6>
+                </div>
+            </div>
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxAdjacentNumbers" class="checkbox unchecked" onclick="toggleCheckbox(2);"></div>
+                <div class="controlBoxOptionText">
+                    <h3>Adjacent Numbers</h3>
+                    <h6>Allows equal numbers to be next to each other</h6>
+                </div>
+            </div>
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxFairNumbers" class="checkbox checked" onclick="toggleCheckbox(3);"><p>✖</p></div>
+                <div class="controlBoxOptionText">
+                    <h3>Fair Numbers</h3>
+                    <h6>Makes each resource equally likely to be rolled (or very close)</h6>
+                </div>
+            </div>
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxAdjacentRedNumbers" class="checkbox unchecked" onclick="toggleCheckbox(4);"></div>
+                <div class="controlBoxOptionText">
+                    <h3>Adjacent Red Numbers</h3>
+                    <h6>Allows red numbers to be next to each other</h6>
+                </div>
+            </div>
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxFairRedNumbers" class="checkbox unchecked" onclick="toggleCheckbox(5);"></div>
+                <div class="controlBoxOptionText">
+                    <h3>Fair Red Numbers</h3>
+                    <h6>Stops each resource from getting more than one red number</h6>
+                </div>
+            </div>
+        </div>
+        <div id="controlBoxOptionHeaderGameplay" class="controlBoxOptionHeader">
+            <img src="Images/ExpandedArrow.png" title="Collapse Menu" onclick="toggleExpand(1);">
+            <h2>Gameplay Stats</h2>
+        </div>
+        <div id="controlBoxOptionsGameplay" class="">
+            <div class="controlBoxOption">
+                <input id="controlBoxInputRolledNumber" type="number" class="inputNumber" value="" step="1" min="2" max="12">
+                <div class="controlBoxOptionText">
+                    <h3>Rolled Numbers</h3>
+                    <h6>Frequencies: <span id="rolledNumberFrequencies">(empty)</span></h6>
+                </div>
+            </div>
+            <div id="rolledNumberChartContainer">
+                <canvas id="rolledNumberChart"></canvas>
+            </div>
+        </div>
+        
+
+        <div id="controlBoxOptionHeaderHelp" class="controlBoxOptionHeader">
+            <img src="Images/ExpandedArrow.png" title="Collapse Menu" onclick="toggleExpand(2);">
+            <h2>Help</h2>
+            <div class="button" onclick="toggleAllHelp();"><p>Toggle All <i>(h)</i></p></div>
+        </div>
+        <div id="controlBoxOptionsHelp" class="">
+            <div class="controlBoxOption">
+                <div id="controlBoxCheckboxIntersectionRank" class="checkbox unchecked" onclick="toggleHelpCheckbox(0);"></div>
+                <div class="controlBoxOptionText">
+                    <h3>Show Best Intersections</h3>
+                    <h6>Indicates the intersections with the highest expected resources per roll</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="catanBoardContainer">
+        <canvas id="catanBoard"></canvas>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="Catan.js"></script>
+</html>
